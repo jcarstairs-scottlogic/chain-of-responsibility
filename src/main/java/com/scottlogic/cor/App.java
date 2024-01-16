@@ -12,12 +12,12 @@ import com.scottlogic.cor.handlers.TranslateSpanishToEnglishHandler;
 
 public class App 
 {
-    public static void main()
+    public static void main(String[] _clargs)
     {
         Optional<TranslateToEnglishHandler> handler = Optional.empty();
 
         while (true) {
-            System.out.println(">>> ");
+            System.out.print(">>> ");
             String input = System.console().readLine();
 
             if (input.equals("exit") || input.equals("quit")) {
@@ -35,7 +35,7 @@ public class App
                         continue;
                     }
 
-                    String lang = arguments.get(0);
+                    String lang = arguments.get(0).toLowerCase();
                     System.out.println("Adding language handler for: " + lang);
 
                     TranslateToEnglishHandler newHandler;
@@ -54,6 +54,7 @@ public class App
                             break;
                         default:
                             System.out.println("Unknown language: " + lang + ". Didn’t add a handler.");
+                            System.out.println("Available languages: french, german, english, spanish");
                             continue;
                     }
 
