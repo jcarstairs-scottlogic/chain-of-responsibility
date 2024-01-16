@@ -2,7 +2,7 @@ package com.scottlogic.cor.translators;
 
 import com.scottlogic.cor.exceptions.NotTranslatableException;
 
-public class French {
+public class FrenchTranslator {
     public static String toEnglish(String text) {
         if (text.equals("Bonjour le monde!")) {
             return "Hello world!";
