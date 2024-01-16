@@ -2,5 +2,13 @@
 
 _18th January 2024_
 
-`git clone` me, and then await further instruction
+Setup:
 
+* Point the `JAVA_HOME` environment variable to Java 18+
+* Install [Maven](https://maven.apache.org/install.html)
+
+To compile and run the app:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.scottlogic.cor.App"
+```
