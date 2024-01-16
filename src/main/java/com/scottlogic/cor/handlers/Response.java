@@ -32,6 +32,16 @@ public class Response {
         this.errorMessage = Optional.empty();
     }
 
+    public String toString() {
+        if (this.hasError()) {
+            return "Failed to translate '" + this.textToTranslate + "': " + this.errorMessage.get();
+        } else {
+            return "Input: " + textToTranslate + "\n"
+                + "Language: " + identifiedLanguage.get() + "\n"
+                + "Result: " + translatedText.get();
+        }
+    }
+
     public String getTextToTranslate() {
         return textToTranslate;
     }
