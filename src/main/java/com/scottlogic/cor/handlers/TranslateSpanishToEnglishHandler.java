@@ -1,13 +1,18 @@
 package com.scottlogic.cor.handlers;
 
-import org.apache.commons.lang3.NotImplementedException;
-
+import com.scottlogic.cor.exceptions.NotTranslatableException;
 import com.scottlogic.cor.exceptions.UnhandledTranslationException;
+import com.scottlogic.cor.identifiers.SpanishIdentifier;
 
 public class TranslateSpanishToEnglishHandler extends AbstractTranslateToEnglishHandler {
     public Response handle(String textToTranslate) {
-        // TODO: implement this method
-        throw new NotImplementedException();
+        if (SpanishIdentifier.isSpanish(textToTranslate)) {
+            return new Response(new NotTranslatableException("Spanish", textToTranslate));
+        } else {
+            return next
+                .map((h) -> h.handle(textToTranslate))
+                .orElseGet(() -> new Response(new UnhandledTranslationException(textToTranslate)));
+        }
     }
 }
 
